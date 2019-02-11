@@ -11,7 +11,7 @@
  
   <form class="form-inline" action="" method="post">
     <div class="form-group">
-      <label for="email">Email:</label>
+      <label for="email">EID:</label>
       <input type="text" class="form-control" name="id" placeholder="Enter EID" required>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
