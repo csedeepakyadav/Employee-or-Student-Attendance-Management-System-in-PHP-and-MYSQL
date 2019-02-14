@@ -12,7 +12,7 @@
   <form class="form-inline" action="" method="post">
     <div class="form-group">
       <label for="email">EID:</label>
-      <input type="text" class="form-control" name="id" placeholder="Enter EID" required>
+      <input type="text" class="form-control" name="eid" placeholder="Enter EID" required>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
@@ -24,7 +24,7 @@
 
 <?php
 
- if(isset($_POST['id'])) {
+ if(isset($_POST['eid'])) {
 	 
 //make connection
 $con = mysqli_connect('localhost','root','','attendance');
@@ -38,9 +38,9 @@ $con = mysqli_connect('localhost','root','','attendance');
 	
  ?>	
  <?php 
-             $Eid = $_POST['id'];
+             $Eid = $_POST['eid'];
 	          $con = mysqli_connect('localhost','root','','attendance');
-              $result = mysqli_query($con,"SELECT * FROM `attendance_taken` WHERE id='$Eid'");
+              $result = mysqli_query($con,"SELECT * FROM `attendance_taken` WHERE eid='$Eid'");
 			  $row = mysqli_fetch_array($result);
 			  $total = $row[0];
 			  $today = strval($total);
@@ -78,9 +78,9 @@ $con = mysqli_connect('localhost','root','','attendance');
 		
  <?php 
 //select database
-$Eid = $_POST['id'];
+$Eid = $_POST['eid'];
 
-$sql="SELECT * FROM `attendance_taken` WHERE id='$Eid' ORDER BY id ASC";
+$sql="SELECT * FROM `attendance_taken` WHERE eid='$Eid' ORDER BY id ASC";
 
 $record = mysqli_query($con,$sql);
 
@@ -103,10 +103,22 @@ while($post=mysqli_fetch_assoc($record)) {
      </tbody>
     </table>
 	</div>
+	
+	
    
   <?php } ?>
  
  <?php } ?>
+ 
+ <div class="container-fluid">
+	  <div class="col-sm-6">
+	    <h3>Attendace of three months :</h3><p>( will be updated on completion of three months of classes).</p>. 		
+	  </div>
+	  
+	  <div class="col-sm-6">
+	    <h3>total semester attendace :</h3><p>( will be updated on completion of semester.).</p>. 
+	  </div>
+	</div>
 
 
 
